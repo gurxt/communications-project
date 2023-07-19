@@ -4,7 +4,7 @@ import { Bar, BarChart, CartesianGrid, Label, LabelList, XAxis, YAxis } from "re
 import TableExample from "./Table"
 import AgeChart from "./Age"
 import SexChart from "./Sex"
-import Trends from "../Trends"
+import Trends from "./Trends"
 
 const age =  [0, 1, 1, 0, 1, 2, 1, 3, 1, 0, 1, 2, 0, 0, 0, 2, 3, 1, 2, 0, 0, 1, 0, 1, 0, 1, 0, 2, 0]
 const gender = [1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0]
@@ -184,7 +184,7 @@ export default function App() {
       <main style={{ backgroundColor: '#02273b' }} className="flex flex-col items-center justify-center w-full h-full p-10 text-slate-200 overflow-hidden">
       { slide === 0 && (
         <>
-        <img src="./src/assets/title.png" className="w-1/2 h-1/2" />
+        <img src="/src/assets/title.png" className="w-1/2 h-1/2" />
         <button 
           className="w-96 px-4 py-4 text-xl rounded hover:text-red-400"
           style={{ backgroundColor: "#03384c" }} 
@@ -254,7 +254,7 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(prev => (prev + 1))}
+              onClick={() => setSlide(prev => ((prev + 1) % 5))}
             >
             NEXT SLIDE 
             </button>
@@ -277,7 +277,7 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(prev => (prev + 1))}
+              onClick={() => setSlide(prev => ((prev + 1) % 5))}
             >
             NEXT SLIDE 
             </button>
