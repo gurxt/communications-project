@@ -177,6 +177,8 @@ const data = raw_data.map(idx => {
   }
 })
 
+import Title from "/src/assets/title.png"
+
 export default function App() {
   const [slide, setSlide] = useState(0)
 
@@ -184,7 +186,7 @@ export default function App() {
       <main style={{ backgroundColor: '#02273b' }} className="flex flex-col items-center justify-center w-full h-full p-10 text-slate-200 overflow-hidden">
       { slide === 0 && (
         <>
-        <img src="/src/assets/title.png" className="w-1/2 h-1/2" />
+        <img src={Title} className="w-1/2 h-1/2" />
         <button 
           className="w-96 px-4 py-4 text-xl rounded hover:text-red-400"
           style={{ backgroundColor: "#03384c" }} 
