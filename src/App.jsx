@@ -178,6 +178,7 @@ const data = raw_data.map(idx => {
 })
 
 import Title from "/src/assets/title.png"
+import AgeTrends from "./AgeTrends"
 
 export default function App() {
   const [slide, setSlide] = useState(0)
@@ -243,6 +244,29 @@ export default function App() {
       )}
       { slide === 3 && (
         <>
+          <div className="text-2xl mb-2">Preferences Based on Age</div>
+          <div className="text-sm mb-10 italic">*mean calculation for each category</div>
+          <AgeTrends _data={data} />
+          <div className="pt-10 flex flex-row w-full items-center justify-center">
+            <button 
+              className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
+              style={{ backgroundColor: "#03384c" }} 
+              onClick={() => setSlide(prev => (prev - 1))}
+            >
+            PREVIOUS SLIDE 
+            </button>
+            <button 
+              className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
+              style={{ backgroundColor: "#03384c" }}
+              onClick={() => setSlide(prev => ((prev + 1) % 6))}
+            >
+            NEXT SLIDE 
+            </button>
+          </div>
+        </>
+      )}
+      { slide === 4 && (
+        <>
           <div className="text-2xl mb-10">Participants Gender</div>
           <SexChart _data={data} />
           <div className="pt-10 flex flex-row w-full items-center justify-center">
@@ -256,14 +280,14 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(prev => ((prev + 1) % 5))}
+              onClick={() => setSlide(prev => (prev + 1))}
             >
             NEXT SLIDE 
             </button>
           </div>
         </>
       )}
-      { slide === 4 && (
+      { slide === 5 && (
         <>
           <div className="text-2xl mb-2">Male, Female, and Gamer Preferences</div>
           <div className="text-sm mb-10 italic">*mean calculation for each category</div>
@@ -279,7 +303,7 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(prev => ((prev + 1) % 5))}
+              onClick={() => setSlide(0)}
             >
             NEXT SLIDE 
             </button>

@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 
-export default function Trends({ _data }) {
+export default function AgeTrends({ _data }) {
     // 'Size': importance_size[idx],
     // 'Panel': importance_panel[idx],
     // 'Resolution': importance_resolution[idx],
@@ -20,63 +20,42 @@ export default function Trends({ _data }) {
 
 
   const data = {
-    'Male': [
-      13,
-      (_data.filter(row => row.Gender === "Male").map(row => row.Size).reduce((x, y) => x + y, 0) / 13).toFixed(2),
-      (_data.filter(row => row.Gender === "Male").map(row => row.Panel).reduce((x, y) => x + y, 0) / 13).toFixed(2),
-      (_data.filter(row => row.Gender === "Male").map(row => row.Resolution).reduce((x, y) => x + y, 0) / 13).toFixed(2),
-      (_data.filter(row => row.Gender === "Male").map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 13).toFixed(2),
-      (_data.filter(row => row.Gender === "Male").map(row => row.Contrast).reduce((x, y) => x + y, 0) / 13).toFixed(2),
-      (_data.filter(row => row.Gender === "Male").map(row => row.Brightness).reduce((x, y) => x + y, 0) / 13).toFixed(2),
+    '18-25': [
+      12,
+      (_data.filter(row => row.Age === "18-25").map(row => row.Size).reduce((x, y) => x + y, 0) / 12).toFixed(2),
+      (_data.filter(row => row.Age === "18-25").map(row => row.Panel).reduce((x, y) => x + y, 0) / 12).toFixed(2),
+      (_data.filter(row => row.Age === "18-25").map(row => row.Resolution).reduce((x, y) => x + y, 0) / 12).toFixed(2),
+      (_data.filter(row => row.Age === "18-25").map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 12).toFixed(2),
+      (_data.filter(row => row.Age === "18-25").map(row => row.Contrast).reduce((x, y) => x + y, 0) / 12).toFixed(2),
+      (_data.filter(row => row.Age === "18-25").map(row => row.Brightness).reduce((x, y) => x + y, 0) / 12).toFixed(2),
     ],
-    'Female': [
-      16,
-      (_data.filter(row => row.Gender === "Female").map(row => row.Size).reduce((x, y) => x + y, 0) / 16).toFixed(2),
-      (_data.filter(row => row.Gender === "Female").map(row => row.Panel).reduce((x, y) => x + y, 0) / 16).toFixed(2),
-      (_data.filter(row => row.Gender === "Female").map(row => row.Resolution).reduce((x, y) => x + y, 0) / 16).toFixed(2),
-      (_data.filter(row => row.Gender === "Female").map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 16).toFixed(2),
-      (_data.filter(row => row.Gender === "Female").map(row => row.Contrast).reduce((x, y) => x + y, 0) / 16).toFixed(2),
-      (_data.filter(row => row.Gender === "Female").map(row => row.Brightness).reduce((x, y) => x + y, 0) / 16).toFixed(2),
+    '26-35': [
+      10,
+      (_data.filter(row => row.Age === "26-35").map(row => row.Size).reduce((x, y) => x + y, 0) / 10).toFixed(2),
+      (_data.filter(row => row.Age === "26-35").map(row => row.Panel).reduce((x, y) => x + y, 0) / 10).toFixed(2),
+      (_data.filter(row => row.Age === "26-35").map(row => row.Resolution).reduce((x, y) => x + y, 0) / 10).toFixed(2),
+      (_data.filter(row => row.Age === "26-35").map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 10).toFixed(2),
+      (_data.filter(row => row.Age === "26-35").map(row => row.Contrast).reduce((x, y) => x + y, 0) / 10).toFixed(2),
+      (_data.filter(row => row.Age === "26-35").map(row => row.Brightness).reduce((x, y) => x + y, 0) / 10).toFixed(2),
     ],
-    'Gamers': [
-      6,
-      (_data.filter(row => {
-        if (row.Usage) {
-          const x = row.Usage.includes("Gaming")
-          return x
-        }
-      }).map(row => row.Size).reduce((x, y) => x + y, 0) / 6).toFixed(2),
-      (_data.filter(row => {
-        if (row.Usage) {
-          const x = row.Usage.includes("Gaming")
-          return x
-        }
-      }).map(row => row.Panel).reduce((x, y) => x + y, 0) / 6).toFixed(2),
-      (_data.filter(row => {
-        if (row.Usage) {
-          const x = row.Usage.includes("Gaming")
-          return x
-        }
-      }).map(row => row.Resolution).reduce((x, y) => x + y, 0) / 6).toFixed(2),
-      (_data.filter(row => {
-        if (row.Usage) {
-          const x = row.Usage.includes("Gaming")
-          return x
-        }
-      }).map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 6).toFixed(2),
-      (_data.filter(row => {
-        if (row.Usage) {
-          const x = row.Usage.includes("Gaming")
-          return x
-        }
-      }).map(row => row.Contrast).reduce((x, y) => x + y, 0) / 6).toFixed(2),
-      (_data.filter(row => {
-        if (row.Usage) {
-          const x = row.Usage.includes("Gaming")
-          return x
-        }
-      }).map(row => row.Brightness).reduce((x, y) => x + y, 0) / 6).toFixed(2),
-    ]
+    '36-45': [
+      5,
+      (_data.filter(row => row.Age === "36-45").map(row => row.Size).reduce((x, y) => x + y, 0) / 5).toFixed(2),
+      (_data.filter(row => row.Age === "36-45").map(row => row.Panel).reduce((x, y) => x + y, 0) / 5).toFixed(2),
+      (_data.filter(row => row.Age === "36-45").map(row => row.Resolution).reduce((x, y) => x + y, 0) / 5).toFixed(2),
+      (_data.filter(row => row.Age === "36-45").map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 5).toFixed(2),
+      (_data.filter(row => row.Age === "36-45").map(row => row.Contrast).reduce((x, y) => x + y, 0) / 5).toFixed(2),
+      (_data.filter(row => row.Age === "36-45").map(row => row.Brightness).reduce((x, y) => x + y, 0) / 5).toFixed(2),
+    ],
+    '>45': [
+      2,
+      (_data.filter(row => row.Age === ">45").map(row => row.Size).reduce((x, y) => x + y, 0) / 2).toFixed(2),
+      (_data.filter(row => row.Age === ">45").map(row => row.Panel).reduce((x, y) => x + y, 0) / 2).toFixed(2),
+      (_data.filter(row => row.Age === ">45").map(row => row.Resolution).reduce((x, y) => x + y, 0) / 2).toFixed(2),
+      (_data.filter(row => row.Age === ">45").map(row => row['Refresh Rate']).reduce((x, y) => x + y, 0) / 2).toFixed(2),
+      (_data.filter(row => row.Age === ">45").map(row => row.Contrast).reduce((x, y) => x + y, 0) / 2).toFixed(2),
+      (_data.filter(row => row.Age === ">45").map(row => row.Brightness).reduce((x, y) => x + y, 0) / 2).toFixed(2),
+    ],
   }
 
   console.log(data)
