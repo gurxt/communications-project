@@ -180,6 +180,7 @@ const data = raw_data.map(idx => {
 import Title from "/src/assets/title.png"
 import Summary from "/src/assets/summary.png"
 import Assumptions from "/src/assets/assumption.png"
+import Index from "/src/assets/index.png"
 import AgeTrends from "./AgeTrends"
 
 export default function App() {
@@ -199,8 +200,39 @@ export default function App() {
         </button>
         </>
       )}
+      { slide === 1 && (
+          <div className="flex flex-col items-center justify-center w-2/3 h-3/4">
+            <div className="text-2xl mb-2 underline font-bold">Index</div>
+            <div className="flex flex-row items-center justify-center w-full">
+              <img src={Index} className="w-1/3 h-3/4 pr-4" />
+              <ul className="list-decimal w-1/3 mb-2">
+                <li className="p-2">Introduction (By Alfred)</li>
+                <li className="p-2">Data Collection & General Results (By Kezia)</li>
+                <li className="p-2">Assumptions (By Anthony)</li>
+                <li className="p-2">Results of Assumptions (By Kowiy)</li>
+                <li className="p-2">Conclusion (By Alfred)</li>
+              </ul>
+            </div>
+            <div className="pt-10 flex flex-row w-full items-center justify-center">
+              <button 
+                className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
+                style={{ backgroundColor: "#03384c" }} 
+                onClick={() => setSlide(prev => (prev - 1))}
+              >
+              PREVIOUS SLIDE 
+              </button>
+              <button 
+                className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
+                style={{ backgroundColor: "#03384c" }}
+                onClick={() => setSlide(prev => (prev + 1))}
+              >
+              NEXT SLIDE 
+              </button>
+            </div>
+          </div>
+      )}
       {
-        slide === 1 && (
+        slide === 2 && (
           <div className="flex flex-col items-center justify-center w-2/3 h-3/4">
             <div className="text-2xl mb-2 underline font-bold">Raw Data</div>
             <ul className="list-disc w-full mb-2">
@@ -227,7 +259,7 @@ export default function App() {
             </div>
           </div>
       )}
-      { slide === 2 && (
+      { slide === 3 && (
         <>
           <div className="text-2xl mb-10 underline font-bold">Assumptions</div>
           <div className="flex flex-row justify-center items-center w-1/2 h-1/2">
@@ -256,7 +288,7 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 3 && (
+      { slide === 4 && (
         <>
           <div className="text-2xl mb-2 font-bold underline">Participants Age</div>
             <ul className="list-disc w-1/2 mb-5">
@@ -282,7 +314,7 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 4 && (
+      { slide === 5 && (
         <>
           <div className="text-2xl mb-2 underline font-bold">Preferences Based on Age</div>
           <div className="text-sm mb-2 italic">*mean calculation for each category</div>
@@ -303,14 +335,14 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(prev => ((prev + 1) % 6))}
+              onClick={() => setSlide(prev => ((prev + 1)))}
             >
             NEXT SLIDE 
             </button>
           </div>
         </>
       )}
-      { slide === 5 && (
+      { slide === 6 && (
         <>
           <div className="text-2xl mb-10 underline font-bold">Participants Gender</div>
           <ul className="list-disc w-1/2 mb-5">
@@ -336,7 +368,7 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 6 && (
+      { slide === 7 && (
         <>
           <div className="text-2xl mb-2 underline font-bold">Male, Female, and Gamer Preferences</div>
           <div className="text-sm mb-2 italic">*mean calculation for each category</div>
@@ -364,7 +396,7 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 7 && (
+      { slide === 8 && (
         <>
           <div className="text-2xl mb-2 underline font-bold">Conclusion</div>
           <div className="flex flex-row justify-center items-center w-1/2 h-1/2">
@@ -387,12 +419,43 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(0)}
+              onClick={() => setSlide(prev => (prev + 1))}
             >
             BACK TO START
             </button>
           </div>
         </>
+      )}
+      { slide === 9 && (
+          <div className="flex flex-col items-center justify-center w-2/3 h-3/4">
+            <div className="text-2xl mb-2 underline font-bold">Index</div>
+            <div className="flex flex-row items-center justify-center w-full">
+              <img src={Index} className="w-1/3 h-3/4 pr-4" />
+              <ul className="list-decimal w-1/3 mb-2">
+                <li className="p-2">Introduction (By Alfred)</li>
+                <li className="p-2">Data Collection & General Results (By Kezia)</li>
+                <li className="p-2">Assumptions (By Anthony)</li>
+                <li className="p-2">Results of Assumptions (By Kowiy)</li>
+                <li className="p-2">Conclusion (By Alfred)</li>
+              </ul>
+            </div>
+            <div className="pt-10 flex flex-row w-full items-center justify-center">
+              <button 
+                className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
+                style={{ backgroundColor: "#03384c" }} 
+                onClick={() => setSlide(prev => (prev - 1))}
+              >
+              PREVIOUS SLIDE 
+              </button>
+              <button 
+                className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
+                style={{ backgroundColor: "#03384c" }}
+                onClick={() => setSlide(0)}
+              >
+              NEXT SLIDE 
+              </button>
+            </div>
+          </div>
       )}
     </main>
   )
