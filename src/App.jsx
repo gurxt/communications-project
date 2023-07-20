@@ -179,6 +179,7 @@ const data = raw_data.map(idx => {
 
 import Title from "/src/assets/title.png"
 import Summary from "/src/assets/summary.png"
+import Assumptions from "/src/assets/assumption.png"
 import AgeTrends from "./AgeTrends"
 
 export default function App() {
@@ -201,7 +202,10 @@ export default function App() {
       {
         slide === 1 && (
           <div className="flex flex-col items-center justify-center w-2/3 h-3/4">
-            <div className="text-2xl mb-5">Raw Data</div>
+            <div className="text-2xl mb-5 underline font-bold">Raw Data</div>
+            <div className="w-3/4">
+              <div>Survey of 29 respondants</div>
+            </div>
             <TableExample data={data} />
             <div className="pt-10 flex flex-row w-full items-center justify-center">
               <button 
@@ -223,8 +227,15 @@ export default function App() {
       )}
       { slide === 2 && (
         <>
-          <div className="text-2xl mb-10">Participants Age</div>
-          <AgeChart _data={data} />
+          <div className="text-2xl mb-10 underline font-bold">Assumptions</div>
+          <div className="flex flex-row justify-center items-center w-1/2 h-1/2">
+            <img src={Assumptions} className="w-1/2 h-full" />
+            <ul className="list-disc w-1/3">
+              <li className="p-2">Younger participants are more likely than older participants to care about screen specifications</li>
+              <li className="p-2">Men are more likely than women to care about screen specifications</li>
+              <li className="p-2">Gamers are most likely to care about screen specifications</li>
+            </ul>
+          </div>
           <div className="pt-10 flex flex-row w-full items-center justify-center">
             <button 
               className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
@@ -244,6 +255,32 @@ export default function App() {
         </>
       )}
       { slide === 3 && (
+        <>
+          <div className="text-2xl mb-2 font-bold underline">Participants Age</div>
+            <ul className="list-disc w-1/2 mb-5">
+              <li className="p-2">Of the 29 participants surveyed, 76% were between the ages of 18-35 and 24% were above the age of 36</li>
+              <li className="p-2">Our assumption is that the results will exhibit negative linear scaling</li>
+            </ul>
+          <AgeChart _data={data} />
+          <div className="pt-10 flex flex-row w-full items-center justify-center">
+            <button 
+              className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
+              style={{ backgroundColor: "#03384c" }} 
+              onClick={() => setSlide(prev => (prev - 1))}
+            >
+            PREVIOUS SLIDE 
+            </button>
+            <button 
+              className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
+              style={{ backgroundColor: "#03384c" }}
+              onClick={() => setSlide(prev => (prev + 1))}
+            >
+            NEXT SLIDE 
+            </button>
+          </div>
+        </>
+      )}
+      { slide === 4 && (
         <>
           <div className="text-2xl mb-2">Preferences Based on Age</div>
           <div className="text-sm mb-10 italic">*mean calculation for each category</div>
@@ -266,7 +303,7 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 4 && (
+      { slide === 5 && (
         <>
           <div className="text-2xl mb-10">Participants Gender</div>
           <SexChart _data={data} />
@@ -288,9 +325,9 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 5 && (
+      { slide === 6 && (
         <>
-          <div className="text-2xl mb-2">Male, Female, and Gamer Preferences</div>
+          <div className="text-2xl mb-2 underline">Male, Female, and Gamer Preferences</div>
           <div className="text-sm mb-10 italic">*mean calculation for each category</div>
           <Trends _data={data} />
           <div className="pt-10 flex flex-row w-full items-center justify-center">
@@ -311,7 +348,7 @@ export default function App() {
           </div>
         </>
       )}
-      { slide === 6 && (
+      { slide === 7 && (
         <>
           <div className="text-2xl mb-2">Conclusion</div>
           <img src={Summary} className="w-1/3 h-3/5" />

@@ -11,10 +11,6 @@ export default function SexChart({ _data }) {
   ]
   )
 
-  useEffect(() => {
-    console.log(data)
-  }, [])
-
   return (
     <div className="flex flex-center text-white">
       <BarChart
