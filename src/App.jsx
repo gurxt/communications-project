@@ -178,6 +178,7 @@ const data = raw_data.map(idx => {
 })
 
 import Title from "/src/assets/title.png"
+import Summary from "/src/assets/summary.png"
 import AgeTrends from "./AgeTrends"
 
 export default function App() {
@@ -303,9 +304,31 @@ export default function App() {
             <button 
               className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
               style={{ backgroundColor: "#03384c" }}
-              onClick={() => setSlide(0)}
+              onClick={() => setSlide(prev => (prev + 1))}
             >
             NEXT SLIDE 
+            </button>
+          </div>
+        </>
+      )}
+      { slide === 6 && (
+        <>
+          <div className="text-2xl mb-2">Conclusion</div>
+          <img src={Summary} className="w-1/3 h-3/5" />
+          <div className="pt-10 flex flex-row w-full items-center justify-center">
+            <button 
+              className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
+              style={{ backgroundColor: "#03384c" }} 
+              onClick={() => setSlide(prev => (prev - 1))}
+            >
+            PREVIOUS SLIDE 
+            </button>
+            <button 
+              className="w-64 ml-5 px-4 py-4 text-xl rounded hover:text-red-400"
+              style={{ backgroundColor: "#03384c" }}
+              onClick={() => setSlide(0)}
+            >
+            BACK TO START
             </button>
           </div>
         </>
