@@ -202,10 +202,12 @@ export default function App() {
       {
         slide === 1 && (
           <div className="flex flex-col items-center justify-center w-2/3 h-3/4">
-            <div className="text-2xl mb-5 underline font-bold">Raw Data</div>
-            <div className="w-3/4">
-              <div>Survey of 29 respondants</div>
-            </div>
+            <div className="text-2xl mb-2 underline font-bold">Raw Data</div>
+            <ul className="list-disc w-full mb-2">
+              <li className="p-2"><b>Dependent variables:</b> size, panel types, resolution, refresh rate, contrast, and brightness</li>
+              <li className="p-2"><b>Independent variables:</b> respondents age range, gender, education level, computer usage, purpose of usage, and type of screen preference </li>
+              <li className="p-2"><b>General results:</b> screen resolution and size were highest rated and screen panel types was the least rated</li>
+            </ul>
             <TableExample data={data} />
             <div className="pt-10 flex flex-row w-full items-center justify-center">
               <button 
@@ -282,8 +284,13 @@ export default function App() {
       )}
       { slide === 4 && (
         <>
-          <div className="text-2xl mb-2">Preferences Based on Age</div>
-          <div className="text-sm mb-10 italic">*mean calculation for each category</div>
+          <div className="text-2xl mb-2 underline font-bold">Preferences Based on Age</div>
+          <div className="text-sm mb-2 italic">*mean calculation for each category</div>
+            <ul className="list-disc w-1/3 mb-2">
+              <li className="p-2">Screen size and panel both scale linearly</li>
+              <li className="p-2">Ages 26-45 showed high preferences for resolution, refresh rate, and contrast</li>
+              <li className="p-2">18-25 year olds showed a high preference for brightness</li>
+            </ul>
           <AgeTrends _data={data} />
           <div className="pt-10 flex flex-row w-full items-center justify-center">
             <button 
@@ -305,7 +312,11 @@ export default function App() {
       )}
       { slide === 5 && (
         <>
-          <div className="text-2xl mb-10">Participants Gender</div>
+          <div className="text-2xl mb-10 underline font-bold">Participants Gender</div>
+          <ul className="list-disc w-1/2 mb-5">
+            <li className="p-2">Of the 29 participants 16 were female, 13 were male</li>
+            <li className="p-2">Our assumption is that men are more likely to care about screen specifications than women</li>
+          </ul>
           <SexChart _data={data} />
           <div className="pt-10 flex flex-row w-full items-center justify-center">
             <button 
@@ -327,8 +338,13 @@ export default function App() {
       )}
       { slide === 6 && (
         <>
-          <div className="text-2xl mb-2 underline">Male, Female, and Gamer Preferences</div>
-          <div className="text-sm mb-10 italic">*mean calculation for each category</div>
+          <div className="text-2xl mb-2 underline font-bold">Male, Female, and Gamer Preferences</div>
+          <div className="text-sm mb-2 italic">*mean calculation for each category</div>
+          <ul className="list-disc w-1/2 mb-5">
+            <li className="p-2">6 gamers were added to the table to test the last assumption</li>
+            <li className="p-2">Men in general did care more about specifications showing high preferences for panel, resolution, and refresh rate</li>
+            <li className="p-2">Gamers only showed a higher preference for brightness</li>
+          </ul>
           <Trends _data={data} />
           <div className="pt-10 flex flex-row w-full items-center justify-center">
             <button 
@@ -350,8 +366,16 @@ export default function App() {
       )}
       { slide === 7 && (
         <>
-          <div className="text-2xl mb-2">Conclusion</div>
-          <img src={Summary} className="w-1/3 h-3/5" />
+          <div className="text-2xl mb-2 underline font-bold">Conclusion</div>
+          <div className="flex flex-row justify-center items-center w-1/2 h-1/2">
+            <img src={Summary} className="w-2/5 h-3/5 p-5" />
+            <ul className="list-disc w-2/3">
+              <li className="p-2">Screen resolutions and size polled strongly</li>
+              <li className="p-2">Participants from ages 26-45 showed the highest preference for overall screen attributes</li>
+              <li className="p-2">Overall men cared the most about preferences, inline with our assumption based on gender, but not inline with out assumption that gamers were to show stronger preferences</li>
+              <li className="p-2">It is difficult to make broad generalizations with a small sample size</li>
+            </ul>
+          </div>
           <div className="pt-10 flex flex-row w-full items-center justify-center">
             <button 
               className="w-64 px-4 py-4 text-xl rounded hover:text-red-400"
